@@ -16,6 +16,9 @@ const applyText = (canvas, text) => {
   return ctx.font;
 };
 
+/**
+ * Example URL params http://localhost:5000/api/v1/card?pfp=https://cdn.discordapp.com/avatars/542572136112324629/617dc81ad9aabdf61367a20515226b0d.png&username=Craferman&servername=shit%20hole&usercount=133&&textcolor=FFFFFF&background=https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pixelstalk.net%2Fwp-content%2Fuploads%2F2016%2F10%2FAnime-Landscape-Backgrounds.jpg&f=1&nofb=1
+ */
 route.get("/", async (req, res, next) => {
   if (!req.query.pfp) return res.json({ error: "No pfp param included!" });
   if (!req.query.username)
@@ -24,7 +27,6 @@ route.get("/", async (req, res, next) => {
     return res.json({ error: "No servername included!" });
   if (!req.query.usercount)
     return res.json({ error: "No userscount usercount included!" });
-  console.log(req.query.textcolor);
   const canvas = new Canvas.createCanvas(
     isNaN(req.query.width) ? 700 : parseInt(req.query.width),
     isNaN(req.query.height) ? 250 : parseInt(req.query.height)
