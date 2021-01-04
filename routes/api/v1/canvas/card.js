@@ -42,17 +42,17 @@ route.get("/", async (req, res, next) => {
   ctx.fillRect(20, 20, canvas.width - 40, canvas.height - 40);
 
   const avatar = await Canvas.loadImage(req.query.pfp);
-  ctx.drawImage(avatar, 25, 25, 150, 150);
+  ctx.drawImage(avatar, 30, 50, 150, 150);
 
   ctx.font = applyText(canvas, req.query.username);
   ctx.fillStyle =
     req.query.textcolor !== null ? "#" + req.query.textcolor : "#000000";
-  ctx.fillText(req.query.username, 200, 75);
+  ctx.fillText(req.query.username, 200, 90);
 
   ctx.font = applyText(canvas, req.query.servername);
-  ctx.fillText("Welcome to " + req.query.servername, 200, 130);
+  ctx.fillText("Welcome to " + req.query.servername, 200, 140);
   ctx.font = "bold 16px sans-serif";
-  ctx.fillText(`We are now at ${req.query.usercount} members!`, 205, 160);
+  ctx.fillText(`We are now at ${req.query.usercount} members!`, 205, 165);
 
   let r = Math.random().toString(36).substring(7);
 
@@ -62,7 +62,7 @@ route.get("/", async (req, res, next) => {
   );
 
   res.sendFile(
-    path.join(__dirname + "../../../../files/usercontent/cards/" + r + ".png")
+    path.join(__dirname + "../../../../../files/usercontent/cards/" + r + ".png")
   );
 });
 

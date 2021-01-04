@@ -1,0 +1,14 @@
+const {Router} = require('express');
+const axios = require('axios');
+let route = Router();
+
+route.get('/', (req, res, next) => {
+    let baseUrl = "http://cdn.api.teamtritan.wtf/nsfw/nekos/";
+    axios.get("http://cdn.api.teamtritan.wtf/nsfw/nekos/map.json").then((res_) => {
+       let randomImg = res_.data.max;
+       let randomTitle = Math.floor((Math.random() * randomImg) + 1) + ".jpg";
+        res.json({img: baseUrl + randomTitle});
+    });
+});
+
+module.exports = route; 
