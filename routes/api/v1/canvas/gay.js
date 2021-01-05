@@ -15,8 +15,12 @@ route.get("/:pfp?", async (req, res, next) => {
   const ctx = canvas.getContext("2d");
 
   
-  const avatar = await Canvas.loadImage(req.query.pfp);
-  ctx.drawImage(avatar, 0, 0, 250, 250);
+  try{
+    const avatar = await Canvas.loadImage(req.query.pfp);
+    ctx.drawImage(avatar, 0, 0, 250, 250);
+  } catch(e) {
+    return res.json({error: "Profile picture not of type JPG"})
+  }
 
   ctx.globalAlpha = 0.5;
   const pride = await Canvas.loadImage("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.8IPcMYSZHg3Ajz-PhJR_hAHaEk%26pid%3DApi&f=1");

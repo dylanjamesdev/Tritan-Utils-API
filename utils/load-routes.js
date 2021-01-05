@@ -5,6 +5,7 @@ let Files = [];
 
 function loadAllRoutes(app) {
   ThroughDirectory(routesPath);
+  console.log(routesPath);
 
   Files.forEach((name) => {
     try {

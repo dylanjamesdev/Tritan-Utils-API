@@ -41,8 +41,12 @@ route.get("/", async (req, res, next) => {
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(20, 20, canvas.width - 40, canvas.height - 40);
 
-  const avatar = await Canvas.loadImage(req.query.pfp);
-  ctx.drawImage(avatar, 30, 50, 150, 150);
+  try{
+    const avatar = await Canvas.loadImage(req.query.pfp);
+    ctx.drawImage(avatar, 30, 50, 150, 150);
+  } catch(e) {
+    return res.json({error: "Profile picture not of type JPG"});
+  }
 
   ctx.font = applyText(canvas, req.query.username);
   ctx.fillStyle =
