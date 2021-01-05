@@ -12,9 +12,9 @@ function loadAllRoutes(app) {
       const route = require(name.dir);
 
       const routePath =
-        name.routePath === "\\index.js"
+        name.routePath === "/index.js"
           ? "/"
-          : `${name.routePath.slice(0, -3).replace(/\\/g, "/")}`;
+          : `${name.routePath.slice(0, -3).replace(/\//g, "/")}`;
       app.use(routePath, route);
       console.log(`Loading ${routePath}`);
     } catch (error) {
@@ -34,7 +34,7 @@ function ThroughDirectory(Directory) {
       return Files.push({
         dir: Absolute,
         name: File,
-        routePath: Absolute.split("\\routes")[1],
+        routePath: Absolute.split("\/routes")[1],
       });
   });
 }
