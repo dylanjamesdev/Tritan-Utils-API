@@ -32,6 +32,12 @@ fs.readdir("./files/usercontent/pfp", (err, files) => {
   }
 });
 
+//setup front end
+app.set("view engine", "ejs");
+app.set("views", "views");
+app.use(express.static("./public"));
+
+
 app.listen(5000, () => {
   console.log("Server has started!!");
 });
