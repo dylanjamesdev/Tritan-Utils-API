@@ -24,9 +24,9 @@ route.get("/", async (req, res, next) => {
   if (!req.query.username)
     return res.json({ error: "No username param included!" });
   if (!req.query.servername)
-    return res.json({ error: "No servername included!" });
-  if (!req.query.usercount)
-    return res.json({ error: "No userscount usercount included!" });
+    return res.json({ error: "No server name included!" });
+  if (!req.query.custom)
+    return res.json({ error: "No custom message included!" });
   const canvas = new Canvas.createCanvas(
     isNaN(req.query.width) ? 700 : parseInt(req.query.width),
     isNaN(req.query.height) ? 250 : parseInt(req.query.height)
@@ -54,9 +54,9 @@ route.get("/", async (req, res, next) => {
   ctx.fillText(req.query.username, 200, 90);
 
   ctx.font = applyText(canvas, req.query.servername);
-  ctx.fillText("Welcome to " + req.query.servername, 200, 140);
+  ctx.fillText("Welcome to " + req.query.servername + "!", 200, 140);
   ctx.font = "bold 16px sans-serif";
-  ctx.fillText(`We are now at ${req.query.usercount} members!`, 205, 165);
+  ctx.fillText(`${req.query.custom}`, 205, 165);
 
   let r = Math.random().toString(36).substring(7);
 
