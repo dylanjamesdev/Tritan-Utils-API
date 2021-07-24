@@ -1,0 +1,24 @@
+{
+  "name": "tritan-utils-api",
+  "version": "0.0.1",
+  "description": "A set of utils for discord bots",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "canvas": "^2.8.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://Team-Tritan@dev.azure.com/Team-Tritan/Tritan%20Utils%20API/_git/Tritan%20Utils%20API"
+  },
+  "author": "",
+  "license": "ISC"
+}

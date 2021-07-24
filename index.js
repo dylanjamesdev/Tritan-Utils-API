@@ -1,13 +1,13 @@
 const express = require("express");
 const loadRoutes = require("./utils/load-routes");
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 const { Console } = require("console");
 const app = express();
-
 app.use(express.json());
 loadRoutes(app);
 
+let port = 5000;
 
 //Clear image cache
 console.log("Clearing image cache on startup");
@@ -16,7 +16,7 @@ fs.readdir("./files/usercontent/cards", (err, files) => {
 
   for (const file of files) {
     console.log(`Deleting usercontent file: ${file}`);
-    fs.unlink(path.join("./files/usercontent/cards", file), err => {
+    fs.unlink(path.join("./files/usercontent/cards", file), (err) => {
       if (err) throw err;
     });
   }
@@ -26,7 +26,7 @@ fs.readdir("./files/usercontent/pfp", (err, files) => {
   if (err) throw err;
 
   for (const file of files) {
-    fs.unlink(path.join("./files/usercontent/pfp", file), err => {
+    fs.unlink(path.join("./files/usercontent/pfp", file), (err) => {
       if (err) throw err;
     });
   }
@@ -37,7 +37,6 @@ app.set("view engine", "ejs");
 app.set("views", "views");
 app.use(express.static("./public"));
 
-
-app.listen(5000, () => {
-  console.log("Server has started!!");
+app.listen(port, () => {
+  console.log(`Server has started on port ${port}!!`);
 });
