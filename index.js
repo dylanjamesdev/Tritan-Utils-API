@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 loadRoutes(app);
 
-let port = 5000;
+let port = 50003;
 
 //Clear image cache
 console.log("Clearing image cache on startup");
