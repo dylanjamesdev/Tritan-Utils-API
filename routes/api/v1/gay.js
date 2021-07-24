@@ -28,7 +28,7 @@ route.get("/:pfp?", async (req, res, next) => {
   fs.writeFileSync("./files/usercontent/pfp/" + r + ".png", canvas.toBuffer());
 
   res.sendFile(
-    path.join(__dirname + "../../../files/usercontent/pfp/" + r + ".png")
+    path.join(__dirname + "../../../../files/usercontent/pfp/" + r + ".png")
   );
 });
 

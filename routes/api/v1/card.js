@@ -67,7 +67,7 @@ route.get("/", async (req, res, next) => {
 
   res.sendFile(
     path.join(
-      __dirname + "../../../files/usercontent/cards/" + r + ".png"
+      __dirname + "../../../../files/usercontent/cards/" + r + ".png"
     )
   );
 });
