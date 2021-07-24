@@ -61,12 +61,14 @@ route.get("/", async (req, res, next) => {
   let r = Math.random().toString(36).substring(7);
 
   fs.writeFileSync(
-    "../../../../files/usercontent/cards/" + r + ".png",
+    "./files/usercontent/cards/" + r + ".png",
     canvas.toBuffer()
   );
 
   res.sendFile(
-    path.join(__dirname + "../../../../files/usercontent/cards/" + r + ".png")
+    path.join(
+      __dirname + "../../../files/usercontent/cards/" + r + ".png"
+    )
   );
 });
 
