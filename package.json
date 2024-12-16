@@ -4,7 +4,7 @@
   "description": "A set of utils for discord bots",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "body-parser": "^1.19.0",
     "canvas": "^2.8.0",
     "console": "^0.7.2",
